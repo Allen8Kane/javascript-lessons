@@ -1,0 +1,191 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"},{"aliases":[],"languageName":"javascript","name":"javascript"}]}}
+
+#!markdown
+
+# Переменные
+
+#!javascript
+
+let age = 20;
+console.log(age); // 20
+age = age + 1;
+console.log(age); // 21
+age = 31
+console.log(age); // 31
+
+#!javascript
+
+const age = 20;
+
+age = age + 1; // error - попытка изменить константу
+
+console.log(age);
+
+#!javascript
+
+// Область видимости, разница между let и var
+
+{
+    var a = 1;
+    let b = 2;
+}
+console.log(a); // 1
+console.log(b); // error - переменная b не определена
+
+#!markdown
+
+# Типы данных
+
+#!javascript
+
+const a = 1;
+const b = 2.1;
+const c = "hello";
+const d = `hello`;
+const e = 'hello';
+const f = true;
+const g = false;
+const h = null;
+const i = undefined;
+const j = NaN;
+const k = "hello" / 2;
+
+console.log(typeof a); // number
+console.log(typeof b); // number
+console.log(typeof c); // string
+console.log(typeof d); // string
+console.log(typeof e); // string
+console.log(typeof f); // boolean
+console.log(typeof g); // boolean
+console.log(typeof h); // object
+console.log(typeof i); // undefined
+console.log(typeof j); // number
+
+let l;
+
+console.log(typeof l); // undefined
+
+#!markdown
+
+# Арифметические операции
+
+#!javascript
+
+let a = 10;
+let b = 10;
+
+a = a + 1;
+b += 1;
+
+console.log(a); // 11
+console.log(b); // 11
+
+a = a - 1;
+b -= 1;
+
+console.log(a); // 10
+console.log(b); // 10
+
+a = a * 2;
+b *= 2;
+
+console.log(a); // 20
+console.log(b); // 20
+
+a = a / 2;
+b /= 2;
+
+console.log(a); // 10
+console.log(b); // 10
+
+#!javascript
+
+// Возведение в степень
+a = a ** 2;
+b **= 2;
+
+console.log(a); // 100
+console.log(b); // 100
+
+// Деление по модулю
+
+a = a % 35;
+b %= 35;
+
+console.log(a); // 30
+console.log(b); // 30
+
+#!markdown
+
+# Инкремент и Декремент
+
+#!javascript
+
+let a = 12;
+
+a++;
+console.log(a); // 13
+
+a--
+console.log(a) // 12
+
+#!javascript
+
+// префиксный инкремент
+
+let x = 5;
+let z = ++x;
+console.log(x); // 6
+console.log(z); // 6
+
+#!javascript
+
+// постфиксный инкремент
+
+let a = 5;
+let b = a++;
+console.log(a); // 6
+console.log(b); // 5
+
+#!markdown
+
+# Преобразования типов
+
+#!javascript
+
+// Преобразование строки в число
+const a = "256.2";
+console.log(a + 2); // 256.22
+
+const b = parseInt(a);
+console.log(b + 2); // 258
+
+const c = parseFloat(a);
+console.log(c + 2); // 258.2
+
+const d = +a;
+console.log(d + 2); // 258.2
+
+#!javascript
+
+// Преобразование числа в строку
+const a = 256.2;
+const b = num.toString();
+console.log(typeof b); // string
+
+#!javascript
+
+// Преобразование в булевое значение
+const a = 0;
+const b = "";
+const c = undefined;
+const d = null;
+const e = NaN;
+
+console.log(Boolean(a)); // false
+console.log(Boolean(b)); // false
+console.log(Boolean(c)); // false
+console.log(Boolean(d)); // false
+console.log(Boolean(e)); // false

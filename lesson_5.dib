@@ -1,0 +1,231 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Функция
+
+#!javascript
+
+function sayHello() { // Создание функции с именем sayHello
+    console.log("Hello!");
+}
+
+sayHello(); // Вызов функции
+sayHello(); // Вызов функции
+sayHello(); // Вызов функции
+
+#!javascript
+
+function sayHelloToSomeone(fullname) { // Создание функции c параметром fullname
+    console.log(`Hello ${fullname}!`);
+}
+
+sayHelloToSomeone("alex"); // Передаём аргумент
+sayHelloToSomeone("bob"); // Передаём аргумент
+sayHelloToSomeone("carl"); // Передаём аргумент
+
+#!javascript
+
+function calculateDiagonal(a, b) { // Создание функции которая возвращает результат
+    const result = Math.sqrt(a ** 2 + b ** 2);
+    return result;
+}
+
+const result1 = calculateDiagonal(3, 4);
+const result2 = calculateDiagonal(16, 9);
+const result3 = calculateDiagonal(21, 9);
+
+console.log(result1);
+console.log(result2);
+console.log(result3);
+
+#!markdown
+
+# Параметры по умолчанию
+
+#!javascript
+
+function fallingTime(height, g=9.8) {
+    const time = Math.sqrt(2 * height / g);
+    return time;
+}
+
+const height = 100;
+
+const earth = fallingTime(height);
+console.log(earth);
+
+const moon = fallingTime(height, 1.6);
+console.log(moon);
+
+#!markdown
+
+# Spread оператор
+
+#!javascript
+
+function printStudent(firstName, score, university) {
+    console.log(`Name: ${firstName}, score: ${score}, university: ${university}`);
+}
+
+const alex = ["alex", 86, "KBTU"];
+const bob = ["bob", 82, "SDU"];
+
+printStudent(...alex);
+printStudent(...bob);
+
+#!markdown
+
+# Rest оператор
+
+#!javascript
+
+function sum(...numbers){
+    let result = 0;
+    for(const n of numbers)
+        result += n;
+    console.log(result);
+}
+sum(6, 4, 5);
+sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+#!markdown
+
+# Функция как объект
+
+#!javascript
+
+function calculateDiagonal(a, b) { // Создание функции которая возвращает результат
+    const result = Math.sqrt(a ** 2 + b ** 2);
+    return result;
+}
+
+const a = calculateDiagonal; // присвоение функции к переменной
+
+const result1 = a(3, 4);
+const result2 = a(16, 9);
+const result3 = a(21, 9);
+
+console.log(result1);
+console.log(result2);
+console.log(result3);
+
+#!markdown
+
+# Функция как параметр
+
+#!javascript
+
+function isEven(number) {
+    return number % 2 === 0;
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function myFilter(array, predicate) {
+    const filteredArray = [];
+    for (const item of array) {
+        if (predicate(item)) {
+            filteredArray.push(item);
+        }
+    }
+    return filteredArray;
+}
+
+const result = myFilter(numbers, isEven);
+console.log(result);
+
+#!markdown
+
+# Анонимная функция
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function myFilter(array, predicate) {
+    const filteredArray = [];
+    for (const item of array) {
+        if (predicate(item)) {
+            filteredArray.push(item);
+        }
+    }
+    return filteredArray;
+}
+
+const result1 = myFilter(numbers, function (number) { return number % 2 === 0; });
+
+const isEven = function (number) { return number % 2 === 0; };
+
+const result2 = myFilter(numbers, isEven);
+
+console.log(result1);
+console.log(result2);
+
+#!markdown
+
+# Стрелочная функция
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function myFilter(array, predicate) {
+    const filteredArray = [];
+    for (const item of array) {
+        if (predicate(item)) {
+            filteredArray.push(item);
+        }
+    }
+    return filteredArray;
+}
+
+const result1 = myFilter(numbers, (number) => { return number % 2 === 0; });
+
+const isEven = (number) => number % 2 === 0;
+
+const result2 = myFilter(numbers, isEven);
+
+console.log(result1);
+console.log(result2);
+
+#!markdown
+
+# Разница между анонимным функциями и стрелочными функциями
+
+#!javascript
+
+// Анонимная функция
+const obj = {
+value: 10,
+    getValue: function() {
+        return function() {
+            return this.value; // this будет указывать на глобальный объект, а не на obj
+        };
+}
+};
+
+// Стрелочная функция
+const obj2 = {
+    value: 10,
+    getValue: function() {
+        return () => {
+            return this.value; // this будет указывать на obj2
+        };
+    }
+};
+
+const result1 = obj.getValue()();
+const result2 = obj2.getValue()();
+console.log(result1);
+console.log(result2);
+
+#!markdown
+
+# Рекурсия
+
+#!markdown
+
+# Замыкания

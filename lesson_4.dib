@@ -1,0 +1,145 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Цикл while
+
+#!javascript
+
+let i = 1;
+while(i < 5) {
+    console.log(i);
+    i++;
+}
+
+#!javascript
+
+const students = ["alex", "bob", "carl"];
+let i = 0;
+while (i < students.length) {
+  console.log(students[i]);
+  i++;
+}
+
+#!markdown
+
+# Цикл for
+
+#!javascript
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+#!javascript
+
+const students = ["alex", "bob", "carl"];
+for (let i = 0; i < students.length; i++) {
+  console.log(students[i]);
+}
+
+#!javascript
+
+// Цикл for с шагом
+for (let i = 0; i < 10; i += 2) {
+    console.log(i);
+}
+
+#!markdown
+
+# Цикл for..of
+
+#!javascript
+
+const students = ["alex", "bob", "carl"];
+
+for (const student of students) {
+    console.log(student);
+}
+
+#!markdown
+
+# Цикл for..in
+
+#!javascript
+
+const marks = {
+    alex: 100,
+    bob: 90,
+    carl: 80
+}
+
+for (property in marks) {
+    console.log(`Студент: ${property}, баллы: ${marks[property]}`);
+}
+
+#!markdown
+
+# Break и Continue
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+        continue;
+    }
+    console.log(numbers[i]);
+}
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === 5) {
+        continue;
+    }
+    console.log(numbers[i]);
+}
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === 5) {
+        break;
+    }
+    console.log(numbers[i]);
+}
+
+#!markdown
+
+# Вложенные циклы
+
+#!javascript
+
+const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+];
+
+let target = 5; // Число, которое мы ищем
+let found = false; // Флаг, указывающий, найден ли элемент
+
+for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j] === target) {
+            console.log(`Число ${target} найдено по координатам [${i}, ${j}]`);
+            found = true;
+            break; // Прерываем внутренний цикл, так как элемент найден
+        }
+    }
+    if (found) {
+        break; // Прерываем внешний цикл, так как элемент найден
+    }
+}
+
+if (!found) {
+    console.log(`Число ${target} не найдено в массиве`);
+}

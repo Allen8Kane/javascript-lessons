@@ -1,0 +1,244 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Массивы
+
+#!javascript
+
+// Одномерный массив
+const students = ["alex", "bob", "carl"];
+console.log(students);
+console.log(students[0]);
+
+students[2] = "charlie";
+console.log(students);
+
+#!javascript
+
+// Двухмерный массивы
+const studentsMarks = [["alex", 5],["bob", 3],["carl", 4]];
+console.log(studentsMarks);
+console.log(studentsMarks[0]);
+console.log(studentsMarks[0][0]);
+console.log(studentsMarks[0][1]);
+
+studentsMarks[0][1] -= 1;
+console.log(studentsMarks);
+
+#!javascript
+
+// деструктуризация массива
+const student = ["alex", 24]
+const [name, age] = student;
+console.log(name);
+console.log(age);
+
+#!markdown
+
+# Объекты
+
+#!javascript
+
+// обращение к свойствам с помощью dot notation
+const student = {
+    firstName: "alex",
+    mark: 5,
+};
+
+console.log(student);
+console.log(student.firstName);
+console.log(student.mark);
+student.mark -= 1;
+console.log(student);
+
+#!javascript
+
+// обращение к свойствам с помощью bracket notation
+const student = {
+    firstName: "alex",
+    mark: 5,
+};
+
+console.log(student);
+console.log(student["firstName"]);
+console.log(student["mark"]);
+student["mark"] -= 1;
+console.log(student);
+
+#!javascript
+
+// деструктуризация объекта
+const student = {
+    firstName: "alex",
+    mark: 5,
+};
+
+const { firstName, mark } = student;
+console.log(firstName);
+console.log(mark);
+
+#!javascript
+
+// Массив с объектами
+
+const users = [
+    {
+        name: "allen",
+        age: 30,
+        gender: "male"
+    },
+    {
+        name: "bob",
+        age: 25,
+        gender: "male"
+    },
+    {
+        name: "caroline",
+        age: 35,
+        gender: "female"
+    }
+];
+
+console.log(users[0].name);
+console.log(users[0]["age"]);
+
+#!markdown
+
+# Ссылочные и значимые типы данных
+
+#!javascript
+
+// значимый тип данных
+let a = 5;
+let b = a;
+console.log(a);
+
+#!javascript
+
+// ссылочный тип данных (массив)
+let a = [1, 2, 3];
+let b = a;
+b[0] = 10;
+console.log(a);
+console.log(b);
+
+#!javascript
+
+// ссылочный тип данных (объект)
+let a = { name: "allen", age: 30 };
+let b = a;
+b.age = 40;
+
+console.log(a);
+console.log(b);
+
+#!markdown
+
+# Поверхностное копирование, Глубокое копирование
+
+#!javascript
+
+// Поверхностное копирование (массив)
+let a = [1, 2, 3];
+let b = [...a];
+b[0] = 10;
+console.log(a);
+console.log(b);
+
+#!javascript
+
+// Поверхностное копирование (объект)
+let a = { name: "allen", age: 30 };
+let b = { ...a };
+b.age = 40;
+
+console.log(a);
+console.log(b); 
+
+#!javascript
+
+// Проблемы поверхностного копирования (массив)
+let a = [1, [2, 3], 4];
+let b = [...a];
+b[1][0] = 10;
+console.log(a);
+console.log(b);
+
+#!javascript
+
+// Проблемы поверхностного копирования (объект)
+let a = { name: "allen", details: { city: "New York" } };
+let b = { ...a };
+b.details.city = "London";
+
+console.log(a);
+console.log(b);
+
+#!javascript
+
+// Глубокое копирование (массив)
+let a = [1, [2, 3], 4];
+let b = JSON.parse(JSON.stringify(a));
+b[1][0] = 10;
+console.log(a);
+console.log(b);
+
+#!javascript
+
+// Глубокое копирование (объект)
+let a = { name: "allen", details: { city: "New York" } };
+let b = JSON.parse(JSON.stringify(a));
+b.details.city = "London";
+
+console.log(a);
+console.log(b);
+
+#!markdown
+
+# Сравнение объектов
+
+#!javascript
+
+const alex = { name: "alex"};
+const bob = { name: "bob"};
+console.log(alex == bob);
+console.log(alex === bob);
+
+carl = alex;
+console.log(alex == carl);
+console.log(alex === carl);
+
+#!javascript
+
+// глубокое сравнение
+const alex = { name: "alex"};
+const bob = { name: "bob"};
+console.log(JSON.stringify(alex)===JSON.stringify(bob)); // false
+
+#!markdown
+
+# Сравнение массивов
+
+#!javascript
+
+const a = [1, 2, 3, 4, 5];
+const b = [1, 2, 3, 4, 5];
+
+console.log(a === b);
+console.log(a == b);
+
+const c = a;
+
+console.log(a === c);
+console.log(a == c);
+
+#!javascript
+
+// глубокое сравнение
+const a = [1, 2, 3, 4, 5];
+const b = [1, 2, 3, 4, 5];
+
+console.log(JSON.stringify(a)===JSON.stringify(b)); // true

@@ -1,0 +1,177 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## Операции сравнения
+
+#!javascript
+
+// равно
+
+const a = 10 == 10;
+console.log(a); // true
+
+const b = 10 == 11;
+console.log(b); // false
+
+#!javascript
+
+// не равно
+
+const c = 10 != 10;
+console.log(c); // false
+
+const d = 10 != 11;
+console.log(d); // true
+
+#!javascript
+
+// больше
+
+const e = 10 > 9;
+console.log(e); // true
+
+// меньше
+
+const h = 10 < 9;
+console.log(h); // true
+
+#!javascript
+
+// больше или равно
+
+const k = 10 >= 9;
+console.log(k); // false
+
+
+// меньше или равно
+
+const n = 10 <= 9;
+console.log(n); // true
+
+#!javascript
+
+// Разница между == и ===
+
+const a = 123 == "123"
+console.log(a); // true
+const b = 0 == ""
+console.log(b); // true
+
+const c = 123 === "123"
+console.log(c); // false
+const d = 0 === ""
+console.log(d); // false
+
+#!markdown
+
+## Логические операции
+
+#!javascript
+
+// Логическое И
+
+const a = true && true;
+console.log(a); // true
+
+const b = true && false;
+console.log(b); // false
+
+const c = false && true;
+console.log(c); // false
+
+#!javascript
+
+// Логическое ИЛИ
+
+const d = true || true;
+console.log(d); // true
+
+const e = true || false;
+console.log(e); // true
+
+const f = false || true;
+console.log(f); // true
+
+const g = false || false;
+console.log(g); // false
+
+#!javascript
+
+// Логическое НЕ
+
+const h = !true;
+console.log(h); // false
+
+const i = 100 > 10;
+console.log(i); // true
+console.log(!i); // false
+
+#!markdown
+
+# Тернарные операторы
+
+#!javascript
+
+let a = 10;
+let b = 11;
+
+const c = a > b ? "a больше b" : "b больше a";
+
+a += 2
+
+const d = a > b ? "a больше b" : "b больше a";
+
+console.log(c);
+console.log(d);
+
+#!markdown
+
+# Условные конструкции
+
+#!javascript
+
+// Конструкция if..else
+
+const a = true;
+const b = false;
+
+if (a) {
+    console.log('Первое сообщение');
+}
+
+if (b) {
+    console.log('Второе сообщение');
+}
+
+#!javascript
+
+let age = 14;
+
+// age += 10;
+
+if (age > 18) {
+    console.log("Ты достаточно взрослый чтобы пользоваться этим сервисом");
+} else {
+    console.log("Ты не достаточно взрослый чтобы пользоваться этим сервисом");
+}
+
+#!javascript
+
+let color = "red";
+
+// color = "yellow";
+// color = "green";
+// color = "blue";
+
+if (color === "red") {
+    console.log("Остановись");
+} else if (color === "yellow") {
+    console.log("Подожди");
+} else if (color === "green") {
+    console.log("Иди");
+} else {
+    console.log("Не понял");
+}
