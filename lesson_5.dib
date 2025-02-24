@@ -8,7 +8,7 @@
 
 #!javascript
 
-function sayHello() { // Создание функции с именем sayHello
+function sayHello() {
     console.log("Hello!");
 }
 
@@ -16,15 +16,23 @@ sayHello(); // Вызов функции
 sayHello(); // Вызов функции
 sayHello(); // Вызов функции
 
+#!markdown
+
+### Функция с параметрами
+
 #!javascript
 
-function sayHelloToSomeone(fullname) { // Создание функции c параметром fullname
+function sayHelloToSomeone(fullname) {
     console.log(`Hello ${fullname}!`);
 }
 
 sayHelloToSomeone("alex"); // Передаём аргумент
 sayHelloToSomeone("bob"); // Передаём аргумент
 sayHelloToSomeone("carl"); // Передаём аргумент
+
+#!markdown
+
+### Функция с return
 
 #!javascript
 
@@ -228,4 +236,73 @@ console.log(result2);
 
 #!markdown
 
+### Факториал числа
+
+#!javascript
+
+function factorial(n) {
+    if (n === 0) {
+      return 1;
+    } else {
+      return n * factorial(n - 1);
+    }
+  }
+  
+  console.log(factorial(5));
+
+#!markdown
+
+### Рекурсивный обход в глубину
+
+#!javascript
+
+function traverseDFS(node, callback) {
+    callback(node);
+  
+    if (node.children) {
+      for (const child of node.children) {
+        traverseDFS(child, callback);
+      }
+    }
+  }
+
+  const tree = {
+    value: 1,
+    children: [
+      { value: 2, children: [{ value: 4 }, { value: 5 }] },
+      { value: 3, children: [{ value: 6 }] },
+    ],
+  };
+  
+  traverseDFS(tree, (node) => console.log(node.value));
+
+#!markdown
+
 # Замыкания
+
+#!javascript
+
+function createCounter() {
+    let count = 0;
+  
+    return {
+      increment: function() {
+        count++;
+        return count;
+      },
+      decrement: function() {
+        count--;
+        return count;
+      },
+      getValue: function() {
+        return count;
+      }
+    };
+  }
+  
+  const counter = createCounter();
+  
+  console.log(counter.increment()); // 1
+  console.log(counter.increment()); // 2
+  console.log(counter.decrement()); // 1
+  console.log(counter.getValue()); // 1

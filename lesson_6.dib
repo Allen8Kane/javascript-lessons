@@ -8,8 +8,456 @@
 
 #!markdown
 
+### length
+`length`: Возвращает длину массива
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+console.log(fruits.length); // 3
+
+#!markdown
+
+### concat
+`concat()` - объединяет два или более массивов и возвращает новый массив.
+
+#!javascript
+
+const fruits = ["Apple", "Banana"];
+const vegetables = ["Carrot", "Potato"];
+
+const food = fruits.concat(vegetables);
+
+console.log(food); // ["Apple", "Banana", "Carrot", "Potato"]
+
+#!markdown
+
+### join
+`join()` - объединяет все элементы массива в строку с разделителем. `separator` - строка, которая будет использоваться в качестве разделителя, по умолчанию запятая.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const result = fruits.join();
+
+console.log(result); // "Apple,Banana,Cherry"
+
+const resultWithSeparator = fruits.join(" | ");
+
+console.log(resultWithSeparator); // "Apple | Banana | Cherry"
+
+#!markdown
+
+### split
+`split()` - разбивает строку на массив подстрок. `separator` - строка, по которой будет производиться разбиение, по умолчанию запятая.
+
+#!javascript
+
+const fruits = "Apple, Banana, Cherry";
+
+const result = fruits.split(", ");
+
+console.log(result); // ["Apple", "Banana", "Cherry"]
+
+#!markdown
+
+### push
+`push()` - добавляет один или более элементов в конец массива и возвращает новую длину массива.
+
+#!javascript
+
+const fruits = ["Apple", "Banana"];
+
+const newLength = fruits.push("Cherry");
+
+console.log(fruits); // ["Apple", "Banana", "Cherry"]
+console.log(newLength); // 3
+
+#!markdown
+
+### pop
+`pop()` - удаляет последний элемент из массива и возвращает его.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const lastFruit = fruits.pop();
+
+console.log(fruits); // ["Apple", "Banana"]
+console.log(lastFruit); // "Cherry"
+
+#!markdown
+
+### shift
+`shift()` - удаляет первый элемент из массива и возвращает его.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const firstFruit = fruits.shift();
+
+console.log(fruits); // ["Banana", "Cherry"]
+console.log(firstFruit); // "Apple"
+
+#!markdown
+
+### unshift
+
+#!javascript
+
+const fruits = ["Apple", "Banana"];
+
+const newLength = fruits.unshift("Cherry");
+
+console.log(fruits); // ["Cherry", "Apple", "Banana"]
+console.log(newLength); // 3
+
+#!markdown
+
+### slice
+`slice()` - возвращает часть массива в виде нового массива. start - индекс начала, end - индекс конца (не включительно).
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+const result = fruits.slice(1, 3);
+
+console.log(result); // ["Banana", "Cherry"]
+console.log(fruits); // ["Apple", "Banana", "Cherry", "Date"]
+
+#!markdown
+
+### splice
+`splice()` - изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые элементы. `start` - индекс начала, `deleteCount` - количество удаляемых элементов, `item1, item2, ...` - элементы, которые будут добавлены.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+const result = fruits.slice(1, 3);
+
+console.log(result); // ["Banana", "Cherry"]
+console.log(fruits); // ["Apple", "Banana", "Cherry", "Date"]
+
+#!markdown
+
+### reverse
+`reverse()` - изменяет порядок элементов массива на обратный.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+fruits.reverse();
+
+console.log(fruits); // ["Cherry", "Banana", "Apple"]
+
+#!markdown
+
+### sort
+`sort()` - сортирует элементы массива. По умолчанию сортировка происходит в алфавитном порядке, но можно передать функцию сравнения для определения порядка сортировки.
+
+#!javascript
+
+const fruits = ["Banana", "Apple", "Cherry"];
+
+fruits.sort();
+
+console.log(fruits); // ["Apple", "Banana", "Cherry"]
+
+#!markdown
+
+### indexOf
+`indexOf()` - возвращает индекс первого вхождения элемента в массиве. Если элемент не найден, возвращает -1.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const index = fruits.indexOf("Banana");
+
+console.log(index); // 1
+
+#!markdown
+
+### lastIndexOf
+`lastIndexOf()` - возвращает индекс последнего вхождения элемента в массиве. Если элемент не найден, возвращает -1.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry", "Banana"];
+
+const index = fruits.lastIndexOf("Banana");
+
+console.log(index); // 3
+
+#!markdown
+
+### forEach
+`forEach()` - выполняет указанную функцию один раз для каждого элемента массива.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+fruits.forEach((fruit, index) => {
+  console.log(fruit, index);
+});
+
+#!markdown
+
+### map
+`map()` - создает новый массив с результатами вызова указанной функции для каждого элемента массива.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.map((number) => number * 2);
+
+console.log(result); // [2, 4, 6, 8, 10]
+
+#!markdown
+
+### find
+`find()` - возвращает первый элемент массива, удовлетворяющий условию, заданному в функции. Если элемент не найден, возвращает `undefined`.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.find((number) => number > 3);
+
+console.log(result); // 4
+
+#!markdown
+
+### findIndex
+`findIndex()` - возвращает индекс первого элемента массива, удовлетворяющего условию, заданному в функции. Если элемент не найден, возвращает -1.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const index = numbers.findIndex((number) => number > 3);
+
+console.log(index); // 3
+
+#!markdown
+
+### filter
+`filter()` - создает новый массив со всеми элементами, прошедшими проверку, заданную в функции.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.filter((number) => number % 2 === 0);
+
+console.log(result); // [2, 4]
+
+#!markdown
+
+### every
+`every()` - проверяет, удовлетворяют ли все элементы массива условие, заданное в функции. Возвращает `true` или `false`.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.every((number) => number > 0);
+
+console.log(result); // true
+
+#!markdown
+
+### some
+`some()` - проверяет, удовлетворяет ли хотя бы один элемент массива условие, заданное в функции. Возвращает `true` или `false`.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.some((number) => number > 5);
+
+console.log(result); // false
+
+#!markdown
+
+### includes
+`includes()` - проверяет, содержит ли массив указанный элемент. Возвращает `true` или `false`.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const result = fruits.includes("Banana");
+
+console.log(result); // true
+
+#!markdown
+
+### reduce
+`reduce()` - применяет функцию к аккумулятору и каждому значению массива (слева направо), чтобы свести его к одному значению.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+
+console.log(result); // 15
+
+#!markdown
+
+### reduceRight
+`reduceRight()` - применяет функцию к аккумулятору и каждому значению массива (справа налево), чтобы свести его к одному значению.
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.reduceRight(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+
+console.log(result); // 15
+
+#!markdown
+
+### fill
+`fill()` - заполняет все элементы массива статическим значением. `value` - значение, которым заполняются элементы, `start` - индекс начала, `end` - индекс конца (не включительно).
+
+#!javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.fill(0, 1, 4);
+
+console.log(numbers); // [1, 0, 0, 0, 5]
+
+#!markdown
+
+### flat
+`flat()` - создает новый массив, в котором все подмассивы внутри исходного массива объединены в один уровень. `depth` - глубина вложенности, по умолчанию 1.
+
+#!javascript
+
+const numbers = [1, [2, 3], [4, [5]]];
+
+const result = numbers.flat();
+
+console.log(result); // [1, 2, 3, 4, [5]]
+
+#!markdown
+
+### flatMap
+`flatMap()` - создает новый массив, в котором все подмассивы внутри исходного массива объединены в один уровень, а затем применяет к каждому элементу функцию и объединяет результаты в новый массив.
+
+#!javascript
+
+const numbers = [1, 2, 3];
+
+const result = numbers.flatMap((number) => [number, number * 2]);
+
+console.log(result); // [1, 2, 2, 4, 3, 6]
+
+#!markdown
+
+### isArray
+`isArray()` - проверяет, является ли переданный аргумент массивом. Возвращает `true` или `false`.
+
+#!javascript
+
+const fruits = ["Apple", "Banana", "Cherry"];
+
+const result = Array.isArray(fruits);
+
+console.log(result); // true
+
+#!markdown
+
 # Методы Объектов
 
 #!markdown
 
+### Object.keys
+`Object.keys(obj)`: Возвращает массив ключей объекта `obj`.
+
+#!javascript
+
+const student = {
+    fullName: "John Doe",
+    age: 20,
+    marks: [90, 80, 70, 60, 50],
+};
+
+console.log(Object.keys(student)); // ["fullName", "age", "marks"]
+
+#!markdown
+
+### Object.values
+`Object.values(obj)`: Возвращает массив значений объекта `obj`.
+
+#!javascript
+
+const student = {
+    fullName: "John Doe",
+    age: 20,
+    marks: [90, 80, 70, 60, 50],
+};
+
+console.log(Object.values(student)); // ["John Doe", 20, [90, 80, 70, 60, 50]]
+
+#!markdown
+
+### Object.entries
+`Object.entries(obj)`: Возвращает массив пар [ключ, значение] объекта `obj`.
+
+#!javascript
+
+const student = {
+    fullName: "John Doe",
+    age: 20,
+    marks: [90, 80, 70, 60, 50],
+};
+
+console.log(Object.entries(student)); // [["fullName", "John Doe"], ["age", 20], ["marks", [90, 80, 70, 60, 50]]]
+
+#!markdown
+
 # Методы Строк
+
+#!markdown
+
+### length
+### charAt
+### concat
+### slice
+### substring
+### substr
+### indexOf
+### lastIndexOf
+### includes
+### startsWith
+### endsWith
+### replace
+### replaceAll
+### split
+### trim
+### toLowerCase
+### toUpperCase
+### padStart
+### padEnd
+### repeat
+### match
+### search

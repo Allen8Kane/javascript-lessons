@@ -8,20 +8,148 @@
 
 #!markdown
 
-# Поля
+### Создание объекта на основе класса
+
+#!javascript
+
+class Student {
+    fullName; // поле класса
+    age;
+    marks;
+}
+
+const student = new Student();
+student.fullName = "John Doe";
+student.age = 20;
+student.marks = [90, 80, 70, 60, 50];
+
+console.log(student);
 
 #!markdown
 
-# Методы
+### Методы
+
+#!javascript
+
+class Student {
+    fullName; // свойство
+    age;
+    marks;
+
+    sayHello() {
+        console.log(`Hello`);
+    }
+}
+
+const student = new Student();
+
+student.sayHello();
 
 #!markdown
 
-# this
+### this
+
+#!javascript
+
+class Student {
+    fullName; // свойство
+    age;
+    marks;
+
+    sayHello() {
+        console.log(`Hello ${this.fullName}`);
+    }
+
+    marksAverage() {
+        const sum = this.marks.reduce((acc, cur) => acc + cur, 0);
+        return sum / this.marks.length;
+    }
+
+    showThis() {
+        console.log(this);
+    }
+}
+
+const student = new Student();
+
+student.fullName = "Alex Smith";
+student.age = 20;
+student.marks = [10, 20, 30, 40, 50];
+
+student.sayHello();
+console.log(student.marksAverage());
+student.showThis();
 
 #!markdown
 
-# Конструктор
+### Конструктор
+
+#!javascript
+
+class Student {
+    fullName; // свойство
+    age;
+    marks;
+
+    constructor(fullName, age, marks) {
+        this.fullName = fullName;
+        this.age = age;
+        this.marks = marks;
+    }
+}
+
+const student = new Student("John", 20, 90);
+console.log(student);
 
 #!markdown
 
-# Наследование
+### Сокращенная запись
+
+#!javascript
+
+class Student {
+    constructor(fullName, age, marks) {
+        this.fullName = fullName;
+        this.age = age;
+        this.marks = marks;
+    }
+}
+
+const student = new Student("John", 20, 90);
+console.log(student);
+
+#!markdown
+
+### Наследование
+
+#!javascript
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+  
+    sayHello() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+const person = new Person("John", 30);
+console.log(person);
+person.sayHello();
+
+class Student extends Person {
+    constructor(name, age, school) {
+        super(name, age);
+        this.school = school;
+    }
+  
+    // sayHello() {
+    //     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old. I am from ${this.school}.`);
+    // }
+}
+
+const student = new Student("John", 30, "MIT");
+console.log(student);
+student.sayHello();
